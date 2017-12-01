@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'restaurants/index'
+
+  root "restaurants#index" #把首頁設為restaurant控制器的index動作
 end
