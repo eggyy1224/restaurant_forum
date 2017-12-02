@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root "restaurants#index" #把首頁設為restaurant控制器的index動作
 
   namespace :admin do
+    resources :restaurants
     root "restaurants#index"
   end
 end
