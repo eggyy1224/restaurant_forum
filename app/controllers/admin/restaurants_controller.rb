@@ -1,7 +1,7 @@
 class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
-  before_action :set_restaurant, only: [:show, :edit, :update]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -24,6 +24,8 @@ class Admin::RestaurantsController < ApplicationController
 
   end
 
+  
+
   def update
     
     
@@ -34,6 +36,12 @@ class Admin::RestaurantsController < ApplicationController
       flash.now[:alert] = "編輯失敗"#flash要跳頁之後才有用
       render :edit
     end
+  end
+
+  def destroy
+    @restaurant.destroy 
+    redirect_to admin_restaurants_path
+    flash[:alert] = "成功刪除"
   end
 
   private

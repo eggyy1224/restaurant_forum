@@ -35,6 +35,16 @@ class Admin::RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   end
 
+  test "destroy action should work" do
+    sign_in @user
+    assert_difference 'Restaurant.count', -1 do
+      delete admin_restaurant_path(@restaurant)
+    end
+    assert_redirected_to admin_restaurants_path
+    assert_not flash.empty?
+
+  end
+
 
 
 end
