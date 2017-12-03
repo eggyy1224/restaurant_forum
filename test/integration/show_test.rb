@@ -13,5 +13,9 @@ class ShowTest < ActionDispatch::IntegrationTest
     get admin_restaurant_path(@restaurant)
     assert_template 'admin/restaurants/show'
     assert_match @restaurant.name, response.body
+    assert_match @restaurant.tel, response.body
+    assert_match @restaurant.address, response.body
+    assert_match @restaurant.opening_hours, response.body
+    assert_match @restaurant.description, response.body
   end
 end

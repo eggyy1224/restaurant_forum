@@ -1,0 +1,31 @@
+<% if @restaurant.errors.any? %>
+  <h1>新增錯誤</h1>
+  <ul>
+    <%= @restaurant.errors.full_messages.each do |msg| %>
+      <li>msg</li>
+    <%end%>
+  </ul>
+  
+<% end %>
+
+
+<%= form_for [:admin, @restaurant] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :tel %>
+  <%= f.text_field :tel %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :opening_hours %>
+  <%= f.text_field :opening_hours %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit yield(:button) %>
+<% end %>
+
+<%= link_to '回到首頁', admin_restaurants_path %>

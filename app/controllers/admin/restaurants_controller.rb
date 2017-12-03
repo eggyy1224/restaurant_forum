@@ -1,6 +1,7 @@
 class Admin::RestaurantsController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
+  before_action :set_restaurant, only: [:show, :edit, :update]
 
 
   def index
@@ -23,13 +24,25 @@ class Admin::RestaurantsController < ApplicationController
 
   end
 
-  def show
-    @restaurant = Restaurant.find(params[:id])
+  def update
+    
+    
+    if @restaurant.update_attributes(restaurant_parameters)
+      redirect_to admin_restaurant_path(@restaurant)
+      flash[:notice] = "編輯成功！"
+    else
+      flash.now[:alert] = "編輯失敗"#flash要跳頁之後才有用
+      render :edit
+    end
   end
 
   private
     def restaurant_parameters
       params.require(:restaurant).permit(:name, :tel, :address, :opening_hours, :description)
+    end
+
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:id])
     end
 
   
