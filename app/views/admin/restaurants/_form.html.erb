@@ -25,6 +25,10 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
+  <%= f.label :image, '照片' %>
+  <%= image_tag @restaurant.image, width: '300px' if @restaurant.image? %>
+  <%= f.file_field :image %>
+
   <%= f.submit yield(:button) %>
 <% end %>
 
