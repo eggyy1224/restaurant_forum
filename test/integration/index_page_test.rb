@@ -13,5 +13,6 @@ class IndexPageTest < ActionDispatch::IntegrationTest
     get admin_restaurants_path
     
     assert_select 'nav.pagination', count: 2
+    
   end
 end
