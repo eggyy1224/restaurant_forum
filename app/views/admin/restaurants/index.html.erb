@@ -1,3 +1,4 @@
+<%= paginate @restaurants %>
 <ul>
   <% @restaurants.each do |restaurant| %>
     <li>
@@ -8,4 +9,5 @@
     </li>
   <% end %>
 </ul>
+<%= paginate @restaurants %>
 <%= link_to "新增", new_admin_restaurant_path %>
