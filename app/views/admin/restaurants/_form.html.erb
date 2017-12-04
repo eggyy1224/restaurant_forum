@@ -1,35 +1,56 @@
-<% if @restaurant.errors.any? %>
-  <h1>新增錯誤</h1>
-  <ul>
-    <%= @restaurant.errors.full_messages.each do |msg| %>
-      <li>msg</li>
-    <%end%>
-  </ul>
+
   
-<% end %>
 
 
-<%= form_for [:admin, @restaurant] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class='container'>
+  <div class='row'>
+    <% if @restaurant.errors.any? %>
+      <h4>新增過程發生錯誤</h4>
+      <ul>
+        <% @restaurant.errors.full_messages do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+      <hr>
+    <% end %>
+    <%= form_for [:admin, @restaurant] do |f| %>
+      <div class='form-group'>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
 
-  <%= f.label :tel %>
-  <%= f.text_field :tel %>
+      <div class='form-group'>
+        <%= f.label :tel %>
+        <%= f.text_field :tel, class: 'form-control' %>
+      </div>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %>
+      <div class='form-group'>
+        <%= f.label :address %>
+        <%= f.text_field :address, class: 'form-control' %>
 
-  <%= f.label :opening_hours %>
-  <%= f.text_field :opening_hours %>
+      </div>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+      <div class='form-group'>
+        <%= f.label :opening_hours %>
+        <%= f.text_field :opening_hours, class: 'form-control' %>
+      </div>
 
-  <%= f.label :image, '照片' %>
-  <%= image_tag @restaurant.image, width: '300px' if @restaurant.image? %>
-  <%= f.file_field :image %>
+      <div class='form-group'>
+        <%= f.label :description %>
+        <%= f.text_field :description, class: 'form-control' %>
+      </div>
 
-  <%= f.submit yield(:button) %>
-<% end %>
+      <div class='form-group'>
+        <%= f.label :image, '照片' %>
+        <%= image_tag @restaurant.image, width: '300px' if @restaurant.image? %>
+        <%= f.file_field :image %>
+      </div>
+      
+      <div class='form-group'>
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
 
-<%= link_to '回到首頁', admin_restaurants_path %>
+      <%= link_to '回到首頁', admin_restaurants_path %>
+    <% end %>
+  </div>
+</div>
