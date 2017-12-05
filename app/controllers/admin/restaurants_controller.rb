@@ -5,7 +5,7 @@ class Admin::RestaurantsController < ApplicationController
 
 
   def index
-    @restaurants = Restaurant.page(params[:page]).per(10)
+    @restaurants = Restaurant.page(params[:page]).per(10)#params[:page]為分頁的參數，意思是會調出第幾頁的資料。per方法會為每幾筆資料設為一頁
   end
 
   def new
@@ -46,7 +46,7 @@ class Admin::RestaurantsController < ApplicationController
 
   private
     def restaurant_parameters
-      params.require(:restaurant).permit(:name, :tel, :address, :opening_hours, :description, :image)
+      params.require(:restaurant).permit(:name, :tel, :address, :opening_hours, :description, :image, :category_id)
     end
 
     def set_restaurant

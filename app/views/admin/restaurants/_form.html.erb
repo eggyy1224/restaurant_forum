@@ -14,6 +14,11 @@
       <hr>
     <% end %>
     <%= form_for [:admin, @restaurant] do |f| %>
+
+      <div class='form-group'>
+        <%= f.label :category %>
+        <%= f.collection_select :category_id, Category.all, :id, :name, options = { prompt: '請選擇' } %>
+      </div>
       <div class='form-group'>
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
