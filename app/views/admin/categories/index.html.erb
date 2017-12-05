@@ -32,8 +32,8 @@
               <td><%= category.id %></td>
               <td><%= category.name %></td>
               <td>
-                <%= link_to '展開', admin_category_path(category), class: 'btn btn-primary' %>
-                <%= link_to '編輯', edit_admin_category_path(category), class: 'btn btn-primary' %>
+                
+                <%= link_to '編輯', admin_categories_path(id: category.id), class: 'btn btn-primary' %>
                 <%= link_to '刪除', admin_category_path(category), method: :delete, data: { confirm: '你確定要刪除分類嗎？' }, class: 'btn btn-danger' %>
               </td>
             </tr>
