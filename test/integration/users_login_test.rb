@@ -12,7 +12,10 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get restaurants_index_path
     assert_template 'restaurants/index'
 
-    get admin_restaurants_index_path#非管理員進不去後台
+    get admin_restaurants_path#非管理員進不去後台
+    assert_redirected_to root_path
+
+    get admin_categories_path#非管理員進不去後台
     assert_redirected_to root_path
     
     
@@ -27,6 +30,10 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get admin_restaurants_index_path#非管理員進不去後台
     #管理員身份可以進去後臺
     assert_template 'admin/restaurants/index'
+
+    get admin_categories_path#非管理員進不去後台
+    #管理員身份可以進去後臺
+    assert_template 'admin/categories/index'
     
     
   end
