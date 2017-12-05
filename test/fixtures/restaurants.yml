@@ -10,6 +10,7 @@ fattys:
   address: "ShangKan road, taichung"
   opening_hours: "7am~9am"
   description: "Italian food"
+  category: thai
 
 <% 30.times do |n| %>
 restaurant_<%= n %>:
@@ -18,4 +19,5 @@ restaurant_<%= n %>:
   address: <%= FFaker::Address.street_address %>
   opening_hours: <%= FFaker::Address.street_address %>
   description: <%= FFaker::Lorem.paragraph %>
+  category: thai
 <% end %>
