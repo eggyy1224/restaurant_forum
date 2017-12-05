@@ -11,7 +11,8 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Name</th>
+            <th>分類</th> 
+            <th>名子</th>
             <th>#</th>
           </tr>
         </thead>
@@ -20,6 +21,7 @@
           <% @restaurants.each do |restaurant| %>
             <tr>
               <th scope="col"><%= restaurant.id %></th>
+              <td><%= restaurant.category.name %></td>
               <td><%= restaurant.name %></td>
               <td>
                 <%= link_to '展開', admin_restaurant_path(restaurant) %>
