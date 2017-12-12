@@ -1,0 +1,7 @@
+<ul class="nav nav-pills nav-center">
+  <li><%= link_to '全部餐廳', root_path %></li>
+  <% @categories.each do |category| %>
+    <li class="<%= 'active' if category == @category %>"><%= link_to category.name, category_path(category) %></li>
+  <% end %>
+</ul>
+<%= render 'shared/res' %>
