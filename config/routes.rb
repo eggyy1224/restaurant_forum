@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   root "restaurants#index" #把首頁設為restaurant控制器的index動作
 
-  resources :restaurants, only: [:index, :show]
+  resources :restaurants, only: [:index, :show] do
+    resources :comments, only: [:create, :destroy]
+  end
 
   resources :categories, only: [:show]
 
