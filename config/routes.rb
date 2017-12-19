@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     resources :categories
     root "restaurants#index"
   end
+
+  resources :users, only: [:show, :edit, :update]
 end
