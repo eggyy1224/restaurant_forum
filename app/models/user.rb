@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :comments
 
   mount_uploader :avatar, AvatarUploader
+
+  validates :name, presence: :true
 end

@@ -19,9 +19,11 @@ namespace :dev do
     20.times do
       User.create!(email: FFaker::Internet.email,
                    password: "123456",
-                   password_confirmation: "123456")
+                   password_confirmation: "123456",
+                   name: FFaker::Name.first_name)
     end
-    User.create( email: "foobar@foo.bar", password: "foobar", role: "admin" )
+    User.create( email: "foobar@foo.bar", password: "foobar", password_confirmation:"foobar", role: "admin", 
+                  name: "eggyy", intro: FFaker::Lorem.paragraph )
     puts "have created fake users"
     puts "now you have #{User.count} users data"
   end
