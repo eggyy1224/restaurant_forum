@@ -26,7 +26,7 @@
       </div>
       <div class="panel-body">
         <% @commented_restaurants.each do |restaurant| %>
-          <div class='col-md-2 my-restaurant text-center'>
+          <div class='col-md-3 my-restaurant text-center'>
             <%= link_to(restaurant_path(restaurant)) do %>
               <%= restaurant.name %>
               <%= image_tag restaurant.image, class: "img-responsive center-block" %><br>
