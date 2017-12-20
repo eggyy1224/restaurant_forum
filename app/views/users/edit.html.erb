@@ -1,0 +1,13 @@
+<h1>edit page</h1>
+<%= form_for @user do |f| %>
+  <%= f.label :name, "名字" %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :intro, "自我介紹" %>
+  <%= f.text_field :intro, class: "form-control" %>
+
+  <%= f.label :avatar, "更換大頭照" %>
+  <%= f.file_field :avatar %>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
