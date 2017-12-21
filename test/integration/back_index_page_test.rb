@@ -7,7 +7,7 @@ class IndexPageTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
-  test 'index page should have pagination and name should show in response body' do
+  test 'index page should have pagination, name and category should show in response body' do
     sign_in @user
 
     get admin_restaurants_path
@@ -19,7 +19,12 @@ class IndexPageTest < ActionDispatch::IntegrationTest
     firts_page_restaurants.each do |restaurant|
       
       assert_match restaurant.name, response.body
+      assert_match restaurant.category.name, response.body
     end
+
+
     
   end
+
+
 end

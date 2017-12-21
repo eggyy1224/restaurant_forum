@@ -1,9 +1,11 @@
 class CommentsController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
+
     @comment = @restaurant.comments.build(comment_params)
     @comment.user = current_user
     @comment.save
+    flash[:notice] = "成功新增留言"
     redirect_to restaurant_path(@restaurant)
   end
 

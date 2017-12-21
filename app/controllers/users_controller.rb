@@ -14,6 +14,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    unless current_user == @user
+      redirect_to current_user
+      return
+    end
     if @user.update_attributes(user_params) 
       flash[:notice] = "成功更新個人資料！"
       redirect_to @user

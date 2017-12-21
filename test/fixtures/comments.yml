@@ -1,11 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+comment:
+  content: 'hihi123'
+  user: one
+  restaurant: fattys
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+<% 100.times do |n| %>
+comment_<%= n %>:
+  content: <%= FFaker::Lorem.paragraph %>
+  user_id: <%= User.all.sample.id %> 
+  restaurant_id: <%= Restaurant.all.sample.id %>
+<% end %>

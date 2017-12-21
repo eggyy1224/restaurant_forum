@@ -1,3 +1,11 @@
 
 thai: 
   name: 'Thai'
+chinese:
+  name: 'chinese'
+japaneses:
+  name: 'japaneses'
+american:
+  name: 'american'
+british: 
+  name: 'british'
