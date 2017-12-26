@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  has_many :restaurants, dependent: :destroy
-  validates :name, dependent: :restrict_with_error
+  has_many :restaurants, dependent: :restrict_with_error
+  validates :name, presence: true
 end
