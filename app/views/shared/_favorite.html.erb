@@ -1,0 +1,6 @@
+<% if restaurant.is_favorite?(current_user) %>
+  <%= link_to "取消收藏", unfavorite_restaurant_path(restaurant), method: :post, class: 'btn btn-info' %>
+<% else %>
+  
+  <%= link_to "收藏", favorite_restaurant_path(restaurant), method: :post, class: 'btn btn-primary' %>
+<% end %>

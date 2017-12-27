@@ -18,8 +18,9 @@
     <div class='col-md-8'>
       <%= simple_format @restaurant.description %>
       <%= link_to "Dashboard", dashboard_restaurant_path(@restaurant), class: 'btn btn-primary' %>
-      <%= link_to "收藏", favorite_restaurant_path(@restaurant), method: :post, class: 'btn btn-primary' %>
-      <%= link_to "取消收藏", unfavorite_restaurant_path(@restaurant), method: :post, class: 'btn btn-info' %>
+      <%= render 'shared/favorite', restaurant: @restaurant %>
+      
+      
     </div>
     <div class='clearfix'></div>
     <hr>
