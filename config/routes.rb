@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     #瀏覽所有餐廳得最新動態
     collection do
       get :feeds
+      get :ranking
     end
     #查看個別餐廳的佈告欄
     member do

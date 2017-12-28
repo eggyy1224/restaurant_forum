@@ -43,4 +43,14 @@ namespace :dev do
     puts "have created 3 fake comment for every restaurants"
     
   end
+
+  task fake_favorites: :environment do
+    Favorite.destroy_all
+
+    2000.times do
+      Favorite.create!(user: User.all.sample, restaurant: Restaurant.all.sample)
+    end
+    puts "have created 2000 fake favorites"
+    
+  end
 end

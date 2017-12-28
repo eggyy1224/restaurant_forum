@@ -1,8 +1,10 @@
-<h1>show page</h1>
+
 
 
 <div class='container'>
   <div class='row'>
+    <h1>個人資料</h1>
+    <hr>
     <div class='col-md-4'>
       <%= image_tag @user.avatar, class: "img-responsive center-block img" %>
     </div>
@@ -22,7 +24,7 @@
   <div class='row'>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= @commented_restaurants.count %> Commented Restaurants</h3>
+        <h3 class="panel-title"><%= @commented_restaurants.count %> 評論過的餐廳</h3>
       </div>
       <div class="panel-body">
         <% @commented_restaurants.each do |restaurant| %>
