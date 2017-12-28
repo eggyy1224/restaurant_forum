@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @commented_restaurants = @user.restaurants.uniq
+    @favorite_restaurants = @user.favorited_restaurants.uniq
   end
 
   def edit
