@@ -4,9 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def admin?
-    self.role == "admin"
-  end
+  
 
   has_many :comments, dependent: :restrict_with_error
 
@@ -21,4 +19,11 @@ class User < ApplicationRecord
 
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant
+
+  has_many :followships, dependent: :destroy
+  has_many :followings, through: :followships#有很多自己追蹤的user
+
+  def admin?
+    self.role == "admin"
+  end
 end
