@@ -21,8 +21,9 @@
   padding-left:70px ;
 }
 .my-restaurant img {
-  max-height: 120px;
-  width: 100%;
+  max-height: 70px;
+  margin-bottom: 10px;
+  
   
 }
 .my-restaurant {
@@ -40,4 +41,17 @@
 .user-index {
   margin-bottom: 20px;
 }
+
+.show-img {
+  max-height: 150px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.following-img {
+  max-height: 25px;
+  margin-bottom: 5px;
+  border-radius: 50%;
+}
+
+
 

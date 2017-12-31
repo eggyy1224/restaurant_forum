@@ -6,7 +6,7 @@
     <h1>個人資料</h1>
     <hr>
     <div class='col-md-4'>
-      <%= image_tag @user.avatar, class: "img-responsive center-block img" %>
+      <%= image_tag @user.avatar, class: "img-responsive center-block show-img" %>
     </div>
     <div class='col-md-8'>
       <h1><%= @user.name %></h1>
@@ -22,42 +22,83 @@
 
 <div class='container'>
   <div class='row'>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @favorite_restaurants.count %> 收藏的餐廳</h3>
-      </div>
-      <div class="panel-body">
-        <% @favorite_restaurants.each do |restaurant| %>
-          <div class='col-md-3 my-restaurant text-center'>
-            <%= link_to(restaurant_path(restaurant)) do %>
-              <%= restaurant.name %>
-              <%= image_tag restaurant.image, class: "img-responsive center-block" %><br>
+    <div class='col-md-4'>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @followings.count %> 你追蹤的人</h3>
+        </div>
+        <div class="panel-body">
+          <% @followings.each do |following| %>
+            
+            <%= link_to(user_path(following)) do %>
+            <%= image_tag following.avatar, class: 'following-img' %>
+            <%= following.name %><br>
               
             <% end %>
-          </div>
-        <% end %>
+            
+          <% end %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @followers.count %> 追蹤你的人</h3>
+        </div>
+        <div class="panel-body">
+          <% @followers.each do |follower| %>
+            
+            <%= link_to(user_path(follower)) do %>
+            <%= image_tag follower.avatar, class: 'following-img' %>
+            <%= follower.name %><br>
+              
+            <% end %>
+            
+          <% end %>
+        </div>
       </div>
     </div>
+
+    <div class='col-md-8'>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @favorite_restaurants.count %> 收藏的餐廳</h3>
+        </div>
+        <div class="panel-body">
+          <% @favorite_restaurants.each do |restaurant| %>
+            <div class='col-md-3 my-restaurant text-center'>
+              <%= link_to(restaurant_path(restaurant)) do %>
+                <%= restaurant.name %>
+                <%= image_tag restaurant.image, class: "img-responsive center-block user-show" %><br>
+                
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @commented_restaurants.count %> 評論過的餐廳</h3>
+        </div>
+        <div class="panel-body">
+          <% @commented_restaurants.each do |restaurant| %>
+            <div class='col-md-3 my-restaurant text-center'>
+              <%= link_to(restaurant_path(restaurant)) do %>
+                <%= restaurant.name %>
+                <%= image_tag restaurant.image, class: "img-responsive center-block" %><br>
+                
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>
 
 <div class='container'>
   <div class='row'>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @commented_restaurants.count %> 評論過的餐廳</h3>
-      </div>
-      <div class="panel-body">
-        <% @commented_restaurants.each do |restaurant| %>
-          <div class='col-md-3 my-restaurant text-center'>
-            <%= link_to(restaurant_path(restaurant)) do %>
-              <%= restaurant.name %>
-              <%= image_tag restaurant.image, class: "img-responsive center-block" %><br>
-              
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+    
   </div>
 </div>
