@@ -53,4 +53,16 @@ namespace :dev do
     puts "have created 2000 fake favorites"
     
   end
+
+  task fake_avatars: :environment do
+    User.all.each  do |user|
+      user.update(avatar: File.open(Rails.root.join("seed_img/#{rand(0..4)}.jpg")))
+      
+    end
+
+    
+    
+  end
+
+
 end
