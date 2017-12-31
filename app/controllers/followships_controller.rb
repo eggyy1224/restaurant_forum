@@ -13,5 +13,10 @@ class FollowshipsController < ApplicationController
   
 
   def destroy
+    
+    followship = current_user.followships.find_by(following_id: params[:id])
+    followship.destroy
+    flash[:alert] = "成功刪除"
+    redirect_back(fallback_location: root_path)
   end
 end
