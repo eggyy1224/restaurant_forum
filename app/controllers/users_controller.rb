@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def friends_list
     @user = User.find(params[:id])
-    @all_friends = @user.friends.uniq
+    @all_friends = @user.friends.to_a.uniq
   end
 
   private
