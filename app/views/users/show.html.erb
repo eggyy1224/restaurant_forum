@@ -56,7 +56,25 @@
           <% end %>
         </div>
       </div>
-      <%= link_to "好友清單", friends_list_user_path(@user) %>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @all_friends.count %> 個好友</h3>
+          <h4><%= link_to "好友清單", friends_list_user_path(@user) %></h4>
+        </div>
+        <div class="panel-body">
+          <% @all_friends.each do |friend| %>
+            
+            <%= link_to(user_path(friend)) do %>
+            <%= image_tag friend.avatar, class: 'following-img' %>
+            <%= friend.name %><br>
+              
+            <% end %>
+            
+          <% end %>
+        </div>
+      </div>
+      
     </div>
 
     <div class='col-md-8'>
