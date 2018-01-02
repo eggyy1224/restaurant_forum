@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @favorite_restaurants = @user.favorited_restaurants.uniq
     @followings = @user.followings
     @followers = @user.followers
-    @all_friends = (@user.friends << @user.passive_friends).uniq
+    @all_friends = @user.friends.uniq
   end
 
   def edit
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def friends_list
     @user = User.find(params[:id])
-    @all_friends = (@user.friends << @user.passive_friends).uniq
+    @all_friends = @user.friends.uniq
   end
 
   private
