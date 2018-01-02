@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @favorite_restaurants = @user.favorited_restaurants.uniq
     @followings = @user.followings
     @followers = @user.followers
-    @all_friends = @user.friends.uniq
+    @all_friends = User.all
   end
 
   def edit
