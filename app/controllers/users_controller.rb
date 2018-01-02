@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @favorite_restaurants = @user.favorited_restaurants.uniq
     @followings = @user.followings
     @followers = @user.followers
+    
   end
 
   def edit
@@ -32,6 +33,11 @@ class UsersController < ApplicationController
       flash[:danger] = "資料更新失敗！"
       render :edit
     end
+  end
+
+  def friends_list
+    @user = User.find(params[:id])
+    @all_friends = (@user.friends << @user.passive_friends).uniq
   end
 
   private

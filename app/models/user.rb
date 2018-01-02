@@ -26,11 +26,21 @@ class User < ApplicationRecord
   has_many :inverse_followships, class_name: "Followship", foreign_key: :following_id
   has_many :followers, through: :inverse_followships, source: :user#從inverse_followships表裡面的user欄位去找
 
+  has_many :friendships, dependent: :destroy#有很多朋友關係列表(user主動邀請)
+  has_many :friends, through: :friendships#有很多朋友(user主動邀請)
+
+  has_many :inversed_friendships, class_name: "Friendship", foreign_key: :friend_id
+  has_many :passive_friends, through: :inversed_friendships, source: :user#有很多朋友(user被請求為朋友)
+
   def admin?
     self.role == "admin"
   end
 
   def following?(user)
     self.followings.include?(user)
+  end
+
+  def friend?(user)
+    self.friends.include?(user)
   end
 end

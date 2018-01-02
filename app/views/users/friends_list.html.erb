@@ -1,16 +1,12 @@
-<ul class="nav nav-tabs">
-  <li ><%= link_to '首頁', restaurants_path %></li>
-  <li ><%= link_to '最新動態', feeds_restaurants_path %></li>
-  <li ><%= link_to 'TOP10餐廳', ranking_restaurants_path %></li>
-  <li class='active'><%= link_to '美食達人', users_path %></li>
 
-</ul>
+
+
 
 <div class='container'>
   <div class='row'>
-    <h1>美食達人</h1>
+    <h1>好友清單</h1>
     <hr>
-    <% @users.each do |user| %>
+    <% @all_friends.each do |user| %>
       <div class='col-md-3 user-index'>
         <%= image_tag user.avatar, class: "img-responsive center-block" %><br>
         <p class='text-center'><%= link_to user.name, user %><br></p> 
@@ -22,7 +18,3 @@
     
   </div>
 </div>
-
-
-  
-
