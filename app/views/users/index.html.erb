@@ -15,8 +15,8 @@
         <div class='user-index'>
           <%= image_tag user.avatar, class: "img-responsive center-block" %><br>
           <p class='text-center'><%= link_to user.name, user %><br></p> 
-          <div class='text-center'><%= render partial: "shared/follow", locals: {user: user} %></div> 
-          <div class='text-center'><%= render partial: "shared/friend", locals: {user: user} %>></div>
+          <div class='text-center'><%= render "shared/follow", user: user %></div> 
+          <div class='text-center'><%= render "shared/friend", user: user %></div>
         </div>
          
       </div>
