@@ -6,7 +6,24 @@
 
 </ul>
 
-
+<div class='container'>
+  <div class='row'>
+    <h1>美食達人</h1>
+    <hr>
+    <% @users.each do |user| %>
+      <div class='col-md-3'>
+        <div class='user-index'>
+          <%= image_tag user.avatar, class: "img-responsive center-block" %><br>
+          <p class='text-center'><%= link_to user.name, user %><br></p> 
+          
+        </div>
+         
+      </div>
+    
+    <% end %>
+    
+  </div>
+</div>
 
 
   
